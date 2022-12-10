@@ -239,8 +239,8 @@ void main()
 		printf("\n1->insert a node\n2->insert at begining\n3->insert at end\n4->insert at position\n5->delect\n6->delectbegining\n7->delect position\n8->search\n9->display\n10->no of nodes\n\n\tEnter your choice : ");
 	    scanf("%d",&ch);
 	    switch(ch){
-	    	case 1:insertnode();
-	    	break;
+	    	        case 1:insertnode();
+	    	        break;
 	   		case 2:insertbegin();
 	   		break;
 	   		case 3:insertend();
