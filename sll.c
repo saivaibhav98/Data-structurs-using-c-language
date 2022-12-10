@@ -1,3 +1,6 @@
+//author : Naveen Wayne 
+//2200031203
+
 #include<stdio.h>
 #include<stdlib.h>
 
