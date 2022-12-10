@@ -1,10 +1,8 @@
-//author : Naveen Wayne 
-//2200031203
-
 #include<stdio.h>
 #include<stdlib.h>
 
 int noofnodes();
+void pnoofnodes();
 void insertnode();
 void insertbegin();
 void insertend();
@@ -38,6 +36,25 @@ int noofnodes()
 		ptr=ptr->next;
 	}
 	return count;
+	}
+	
+}
+
+void pnoofnodes()
+{
+	int count=0;
+	if(start==NULL)
+	{
+		printf("\n\t 0 nodes\n");
+	}
+	else
+	{
+		ptr=start;
+		while(ptr!=NULL){
+		count++;
+		ptr=ptr->next;
+	}
+	printf("\n\t %d nodes\n",count);
 	}
 	
 }
@@ -239,7 +256,7 @@ void main()
 {
 	int ch;
 	while(1){
-		printf("\n1->insert a node\n2->insert at begining\n3->insert at end\n4->insert at position\n5->delect\n6->delectbegining\n7->delect position\n8->search\n9->display\n10->no of nodes\n\n\tEnter your choice : ");
+		printf("\n1->insert a node\n2->insert at begining\n3->insert at end\n4->insert at position\n5->delect\n6->delectbegining\n7->delect position\n8->search\n9->display\n10->no of nodes\n11->Exit from program :\n\tEnter your choice : ");
 	    scanf("%d",&ch);
 	    switch(ch){
 	    	        case 1:insertnode();
@@ -260,9 +277,13 @@ void main()
 	   		break;
 	   		case 9: display();
 	   		break;
-	   		case 10:noofnodes();
+	   		case 10:pnoofnodes();
 	   		break;
-	   		default:exit(1);
+	   		case 11: printf("\tYou exited from the list\n"); 
+		        exit(0); 
+		        break; 
+			default: printf("\tYour choice is INVALLID, please choose a VALID choice\n"); 
+
 		}
 	}
 	
