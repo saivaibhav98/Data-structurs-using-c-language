@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+
 int noofnodes();
 void insertnode();
 void insertbegin();
@@ -29,11 +30,13 @@ int noofnodes()
 	else
 	{
 		ptr=start;
-		while(ptr->next!=NULL)
+		while(ptr!=NULL){
 		count++;
 		ptr=ptr->next;
 	}
 	return count;
+	}
+	
 }
 
 void insertnode()
@@ -86,7 +89,7 @@ void insertend()
 
 void insertposition()
 {
-	int position,cou_nt=1;
+	int position,count=1,value;
 	if(start==NULL){
 		printf("\nSince list is empty, this function doesn't work\n");
 	}
@@ -94,24 +97,29 @@ void insertposition()
 	{
 		printf("Enter the position : ");
 		scanf("%d",&position);
-		if(position>noofnodes())
-		{
-			printf("\ninvalid position\n");
+		
+		if(position>noofnodes()){
+		    printf("\nInvalid position\n");
 		}
-		else
-		{
-			newnode=(struct node *)malloc(sizeof(struct node));
+		else if(position==1){
+		    insertbegin();
+		}
+        else
+        {
+	       newnode=(struct node *)malloc(sizeof(struct node));
 			printf("Enter the data : ");
-			scanf("%d",&newnode->data);
+			scanf("%d",&value);
+			newnode->data=value;
 			ptr=start;
-			while(cou_nt<position-1){
-				pptr=ptr;
+			while(count<position)
+			{
+			    pptr=ptr;
 				ptr=ptr->next;
-				cou_nt++;
+				count++;
 			}
-			newnode->next=ptr;
-			pptr->next=newnode;
-		}
+		    newnode->next=ptr;
+		    pptr->next=newnode;
+        }
 	}
 }
 
@@ -147,22 +155,32 @@ void delectbegining()
 
 void delectposition()
 {
-	int position,count=1;
+	int count=1;
+	int pos;
 	if(start==NULL){
 		printf("\nSince list is empty, this function doesn't work\n");
     }
-    else{
-    	printf("Enter the position : ");
-    	scanf("%d",&position);
-    	if(position>noofnodes()){
-    		printf("\nInvalid function\n");
-		}
-		else{
-			ptr=start;
-			while(count!=position-1){
-				pptr=ptr;
-				ptr=ptr->next;
-			}
+    else
+    {
+    	printf("Enter the position : "); 
+    	scanf("%d",&pos);
+    	
+    	    if(pos>noofnodes())
+    	    {
+    	        printf("\nInvalid function\n");
+		    }
+		    else if(pos==1){
+		        delectbegining();
+		    }
+	    	else
+		    {
+			    ptr=start;
+			    while(count!=pos)
+			    {
+				    pptr=ptr;
+				    ptr=ptr->next;
+				    count++;
+			    }
 			pptr->next=ptr->next;
 			free(ptr);
 		}
@@ -201,25 +219,24 @@ void seach()
 void display()
 {
 	if(start==NULL){
-		printf("\nCant display since linked list is empty\n");
-		exit(1);
-		
+	 printf("\nhead --> NULL\n");
 	}
 	else{
 		ptr=start;
+		printf("\nhead-->");
 		while(ptr!=NULL){
 			printf("[ %d ]--->",ptr->data);
 			ptr=ptr->next;
 		}
-		printf("NULL\n");
 	}
+		printf(" NULL\n");
 }
 
 void main()
 {
 	int ch;
 	while(1){
-		printf("\n1->insert a node\n2->insert at begining\n3->insert at end\n4->insert at position\n5->delect\n6->delectbegining\n7->delect position\n8->search\n9->display\n\t Enter your choice : ");
+		printf("\n1->insert a node\n2->insert at begining\n3->insert at end\n4->insert at position\n5->delect\n6->delectbegining\n7->delect position\n8->search\n9->display\n10->no of nodes\n\n\tEnter your choice : ");
 	    scanf("%d",&ch);
 	    switch(ch){
 	    	case 1:insertnode();
@@ -240,11 +257,10 @@ void main()
 	   		break;
 	   		case 9: display();
 	   		break;
-	   		default:exit(1);
+	   		case 10:noofnodes();
 	   		break;
+	   		default:exit(1);
 		}
 	}
 	
-	
 }
-
