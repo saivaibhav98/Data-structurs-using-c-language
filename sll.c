@@ -219,7 +219,7 @@ void seach()
 void display()
 {
 	if(start==NULL){
-	 printf("\nhead --> NULL\n");
+	 printf("\nhead -->");
 	}
 	else{
 		ptr=start;
