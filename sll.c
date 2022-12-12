@@ -12,6 +12,7 @@ void delectbegining();
 void delectposition();
 void seach();
 void display();
+void reverse();
 
 struct node
 {
@@ -252,11 +253,24 @@ void display()
 		printf(" NULL\n");
 }
 
+void reverse()
+{
+	ptr=NULL;
+	pptr=NULL;
+	while(start!=NULL){
+		pptr=start->next;
+		start->next=ptr;
+		ptr=start;
+		start=pptr;
+	}
+	start=ptr;
+}
+
 void main()
 {
 	int ch;
 	while(1){
-		printf("\n1->insert a node\n2->insert at begining\n3->insert at end\n4->insert at position\n5->delect\n6->delectbegining\n7->delect position\n8->search\n9->display\n10->no of nodes\n11->Exit from program :\n\tEnter your choice : ");
+		printf("\n1->insert a node\n2->insert at begining\n3->insert at end\n4->insert at position\n5->delect\n6->delectbegining\n7->delect position\n8->search\n9->display\n10->no of nodes\n11->reverse th elink list\n12->Exit from program :\n\tEnter your choice : ");
 	    scanf("%d",&ch);
 	    switch(ch){
 	    	        case 1:insertnode();
@@ -267,23 +281,25 @@ void main()
 	   		break;
 	   		case 4:insertposition();
 	   		break;
-	   		case 5: delect();
+	   		case 5:delect();
 	   		break;
 	   		case 6:delectbegining();
 	   		break;
-	   		case 7: delectposition();
+	   		case 7:delectposition();
 	   		break;
-	   		case 8 : seach();
+	   		case 8:seach();
 	   		break;
-	   		case 9: display();
+	   		case 9:display();
 	   		break;
 	   		case 10:pnoofnodes();
 	   		break;
-	   		case 11: printf("\tYou exited from the list\n"); 
-		        exit(0); 
-		        break; 
+	   		case 11:reverse();
+	   		break;
+	   		case 12: printf("\tYou exited from the list\n"); 
+		    exit(1); 
+		    break; 
 			default: printf("\tYour choice is INVALLID, please choose a VALID choice\n"); 
-
+			break;
 		}
 	}
 	
