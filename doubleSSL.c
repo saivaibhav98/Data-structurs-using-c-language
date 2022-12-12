@@ -11,7 +11,7 @@ void delect();
 void delectbegin();
 void delectposition();
 void display();
-
+void search();
 
 struct node 
 {
@@ -68,8 +68,8 @@ void insertnode()
 	}
 	else{
 		ptr=start;
-		while(ptr->next=NULL){
-			ptr=ptr->next; 
+		while(ptr->next!=NULL){
+			ptr=ptr->next;
 		}
 		ptr->next=newnode;
 		newnode->prev=ptr;
@@ -208,11 +208,37 @@ void display()
 	}	
 }
 
+void search()
+{
+	int key,x=0;
+	if(start==NULL){
+		printf("\n\t[ start ]<==>");
+	}
+	else{
+		printf("\n\tEnter the key : ");
+		scanf("%d",&key);
+		ptr=start;
+		while(ptr!=NULL){
+			if(ptr->data==key){
+				x++;
+				break;
+			}
+			ptr=ptr->next;
+		}
+	}
+	if(x==0){
+		printf("\n\tElement not found\n");
+	}
+	else{
+		printf("\n\tElement found\n");
+	}
+}
+
 void main()
 {
 	int ch;
 	while(1){
-		printf("\n1->insert a node\n2->insert at begining\n3->insert at end\n4->insert at position\n5->delect\n6->delectbegining\n7->delect position\n8->display\n9->no of nodes\n10->Exit from program :\n\tEnter your choice : ");
+		printf("\n1->insert a node\n2->insert at begining\n3->insert at end\n4->insert at position\n5->delect\n6->delectbegining\n7->delect position\n8->display\n9->no of nodes\n10->searching\n11->exit for program\n\tEnter your choice : ");
 		scanf("%d",&ch);
 		switch(ch){
 			case 1:insertnode();
@@ -233,7 +259,9 @@ void main()
 	   		break;
 	   		case 9:pnoofnodes();
 	   		break;
-	   		case 10: printf("\tYou exited from the list\n"); 
+	   		case 10:search();
+	   		break;
+	   		case 11: printf("\tYou exited from the list\n"); 
 		    exit(1); 
 		    break; 
 			default: printf("\tYour choice is INVALLID, please choose a VALID choice\n"); 
