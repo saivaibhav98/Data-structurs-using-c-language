@@ -250,7 +250,7 @@ void main()
 		scanf("%d",&ch);
 		switch(ch){
 			case 1:insertnode();
-	    	break;
+	    	        break;
 	   		case 2:insertbegin();
 	   		break;
 	   		case 3:insertend();
@@ -270,8 +270,8 @@ void main()
 	   		case 10:search();
 	   		break;
 	   		case 11: printf("\tYou exited from the list\n"); 
-		    exit(1); 
-		    break; 
+		        exit(1); 
+		        break; 
 			default: printf("\tYour choice is INVALLID, please choose a VALID choice\n"); 
 			break;
 		}
