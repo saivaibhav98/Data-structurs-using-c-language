@@ -89,6 +89,10 @@ void insertbegin()
 
 void insertend()
 {
+	if(start==NULL){
+			printf("\n\tSince list is empty, this function doesn't work\n");
+	}
+	else{
 	newnode=(struct node *)malloc(sizeof(struct node));
 	printf("Enter the data : ");
 	scanf("%d",&newnode->data);
@@ -99,6 +103,7 @@ void insertend()
 	ptr->next=newnode;
 	newnode->prev=ptr;
 	newnode->next=NULL;
+  }
 }
 
 void insertposition()
@@ -177,6 +182,9 @@ void delectposition()
 		}
 		else if(position==noofnodes()){
 			delect();
+		}
+		else if(position==1){
+			delectbegining();
 		}
 		else{
 			ptr=start;
