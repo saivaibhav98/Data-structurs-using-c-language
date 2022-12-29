@@ -30,7 +30,7 @@ void merge(int a[],int b[],int m,int n)
 			k++;
 			i++;
 		}
-			while(j<n)
+		while(j<n)
 		{
 			r[k]=a[j];
 			k++;
