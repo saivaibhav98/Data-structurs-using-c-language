@@ -337,8 +337,8 @@ void main()
 	   		case 13:reverse();
 	   		break;
 	   		case 14: printf("\tYou exited from the list\n"); 
-		    exit(1); 
-		    break; 
+		    	exit(1); 
+		    	break; 
 			default: printf("\tYour choice is INVALLID, please choose a VALID choice\n"); 
 			break;
 		}
