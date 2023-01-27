@@ -265,8 +265,8 @@ void main(){
 		printf("\n1->insert a node\n2->insert at begining\n3->insert at end\n4->insert at position\n5->delect\n6->delectbegining\n7->delect position\n8->search\n9->display\n10->no of nodes\n11->Minimun element\n12->Maximum element\n13->Exit from program :\n\tEnter your choice : ");
 	    scanf("%d",&ch);
 	    switch(ch){
-	    	case 1:create();
-	    	break;
+	    		case 1:create();
+	    		break;
 	   		case 2:insert_begin();
 	   		break;
 	   		case 3:insert_end();
@@ -290,10 +290,10 @@ void main(){
 	   		case 12:find_max();
 	   		break;
 	   		case 13: printf("\tYou exited from the list\n"); 
-		    exit(1); 
-		    break; 
-			  default: printf("\tYour choice is INVALLID, please choose a VALID choice\n"); 
-			  break;
+		    	exit(1); 
+		    	break; 
+			default: printf("\tYour choice is INVALLID, please choose a VALID choice\n"); 
+			break;
 		}
 	}
 }
