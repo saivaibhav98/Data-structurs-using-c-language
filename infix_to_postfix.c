@@ -9,6 +9,8 @@ int priority(char ch1){
 	return 1;
 	else if(ch1=='*'|| ch1=='/')
 	return 2;
+	else if(ch=='^')
+	return 3;
 }
 void push(char ch){
     stack[++top]=ch;
